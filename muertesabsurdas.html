@@ -23,8 +23,9 @@
 	<h3>Todo esto es humoristico y fantasioso y no es para ofender a nadie, solo es por diversion</h3>
     <button onclick="showRandomDeath()">Presiona este botón para ver muertes absurdas</button>
     <div id="output"></div>
-
-    <script>
+	<h3>Como crear una pagina web gratis</h3> 
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/924gStqHb_c?si=5clz9afjzGpSdDPL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+	<script>
         // Lista de muertes absurdas
         const deaths = [
             'Aplastado por una avalancha de globos de helio.',
@@ -129,7 +130,8 @@
             'Envenenado por una bebida de salsa barbacoa.'
         ];
 
-          function showRandomDeath() {
+         function showRandomDeath() {
+		 
             // Obtener el elemento donde se mostrará el texto
             const outputDiv = document.getElementById('output');
             
@@ -142,13 +144,13 @@
 
 
             // Alternar la visibilidad del elemento
-            if (outputDiv.style.display === 'none') {
+            if (outputDiv.style.display === 'block') {
                 outputDiv.style.display = 'block'; // Mostrar el texto
             } else {
-                outputDiv.style.display = 'none';  // Ocultar el texto
+                outputDiv.style.display = 'block';  // Ocultar el texto
+				
             }
         }
     </script>
 </body>
 </html>
-
