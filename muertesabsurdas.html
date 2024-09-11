@@ -3,29 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Las muertes mas absurdas</title>
+    <title>Las muertes más absurdas</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
             text-align: center;
+            background-color: #22b085;
+            position: relative;
+			overflow-x: hidden;
         }
+        
+        #left-image, #right-image {
+            position: fixed;
+            top: 250px; /* Ajusta esto según necesites para la posición vertical */
+            width: 15vw; /* Ajusta el tamaño según sea necesario */
+            height: auto;
+            z-index: 1; /* Asegura que la imagen esté encima del contenido */
+        }
+
+        #left-image {
+            left: 10px;
+        }
+
+        #right-image {
+            right: 10px;
+        }
+
+        .content {
+            margin: 20px;
+            padding: 20px;
+        }
+
         #output {
             margin-top: 20px;
             font-size: 1.2em;
             color: #333;
             display: none; /* Inicialmente oculto */
         }
+
+        @media (max-width: 600px) {
+            #left-image, #right-image {
+                width: 240vw; /* Ajusta el tamaño de las imágenes en pantallas pequeñas */
+            }
+        }
     </style>
 </head>
 <body>
+    <img id="left-image" src="/Img/imagen 1.png" alt="">
+    <img id="right-image" src="/Img/imagen 2.png" alt="">
     <h1>Estas son muertes absurdas</h1>
-	<h3>Todo esto es humoristico y fantasioso y no es para ofender a nadie, solo es por diversion</h3>
+    <h3>Todo esto es humorístico y fantasioso y no es para ofender a nadie, solo es por diversión</h3>
     <button onclick="showRandomDeath()">Presiona este botón para ver muertes absurdas</button>
     <div id="output"></div>
-	<h3>Como crear una pagina web gratis</h3> 
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/924gStqHb_c?si=5clz9afjzGpSdDPL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-	<script>
+    <h3>Cómo crear una página web gratis</h3> 
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/924gStqHb_c?si=5clz9afjzGpSdDPL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <script>
         // Lista de muertes absurdas
         const deaths = [
             'Aplastado por una avalancha de globos de helio.',
@@ -131,7 +164,6 @@
         ];
 
          function showRandomDeath() {
-		 
             // Obtener el elemento donde se mostrará el texto
             const outputDiv = document.getElementById('output');
             
@@ -140,15 +172,9 @@
             const randomDeath = deaths[randomIndex];
             
             // Mostrar el texto aleatorio junto con el índice
-            outputDiv.innerHTML = `<strong>Índice:</strong> ${randomIndex} <br> <strong>Descripción:</strong> ${randomDeath}`;
-
-
-            // Alternar la visibilidad del elemento
-            if (outputDiv.style.display === 'block') {
-                outputDiv.style.display = 'block'; // Mostrar el texto
-            } else {
-                outputDiv.style.display = 'block';  // Ocultar el texto
-				
+            outputDiv.innerHTML = `<strong>Índice:</strong> ${randomIndex} <br> <strong>Descripción:</strong> ${randomDeath}`
+            {
+			outputDiv.style.display = 'block'; // Mostrar el texto
             }
         }
     </script>
