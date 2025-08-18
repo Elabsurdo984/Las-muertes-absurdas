@@ -6,41 +6,42 @@
     <link rel="stylesheet" href="css/config.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/modal.css" />
+    <link rel="stylesheet" href="css/categories.css" />
+    <link rel="shortcut icon" href="Images/Logo.png" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Las muertes más absurdas</title>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
-    <link rel="shortcut icon" href="Images/Logo.png" type="image/x-icon" />
   </head>
   <body>
     <!-- Interruptor de tema independiente -->
     <div class="theme-toggle-container">
-      <button id="themeToggleBtn" class="theme-toggle-btn">
-        <i id="themeIcon" class="fas fa-moon"></i>
+      <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Cambiar tema" title="Cambiar entre tema claro y oscuro">
+        <i id="themeIcon" class="fas fa-moon" aria-hidden="true"></i>
       </button>
     </div>
 
     <!-- Boton de configuracion y menu -->
     <div class="config-container">
-      <button class="config-button" onclick="toggleConfig()">
-        <i class="fas fa-cog"></i>
+      <button class="config-button" onclick="toggleConfig()" aria-label="Abrir configuración" title="Abrir menú de configuración">
+        <i class="fas fa-cog" aria-hidden="true"></i>
       </button>
 
-      <div class="config-menu" id="configMenu">
-        <h3>Configuracion</h3>
+      <div class="config-menu" id="configMenu" role="dialog" aria-labelledby="config-title" aria-hidden="true">
+        <h3 id="config-title">Configuración</h3>
         <!-- Tamaño de fuente -->
         <div class="config-option">
-          <label>Tamaño de texto</label>
-          <div class="size-buttons">
-            <button onclick="changeFontSize('small')" class="size-btn">
+          <label id="font-size-label">Tamaño de texto</label>
+          <div class="size-buttons" role="group" aria-labelledby="font-size-label">
+            <button onclick="changeFontSize('small')" class="size-btn" aria-label="Texto pequeño" title="Reducir tamaño del texto">
               A-
             </button>
-            <button onclick="changeFontSize('normal')" class="size-btn">
+            <button onclick="changeFontSize('normal')" class="size-btn" aria-label="Texto normal" title="Tamaño normal del texto">
               A
             </button>
-            <button onclick="changeFontSize('large')" class="size-btn">
+            <button onclick="changeFontSize('large')" class="size-btn" aria-label="Texto grande" title="Aumentar tamaño del texto">
               A+
             </button>
           </div>
@@ -48,28 +49,30 @@
 
         <!-- Velocidad de animaciones -->
         <div class="config-option">
-          <label>Velocidad de animaciones</label>
-          <select id="animationSpeed" onchange="changeAnimationSpeed()">
-            <option value="0.5">Rapida</option>
+          <label for="animationSpeed">Velocidad de animaciones</label>
+          <select id="animationSpeed" onchange="changeAnimationSpeed()" aria-describedby="animation-help">
+            <option value="0.5">Rápida</option>
             <option value="1" selected>Normal</option>
             <option value="2">Lenta</option>
           </select>
+          <small id="animation-help" class="sr-only">Controla la velocidad de las animaciones de emojis</small>
         </div>
 
         <!-- Emoji para calificacion -->
         <div class="config-option">
-          <label>Estilo de calificacion</label>
-          <select id="ratingStyle" onchange="changeRatingStyle()">
+          <label for="ratingStyle">Estilo de calificación</label>
+          <select id="ratingStyle" onchange="changeRatingStyle()" aria-describedby="rating-help">
             <option value="skull">Calaveras 💀</option>
             <option value="star">Estrellas ⭐</option>
             <option value="ghost">Fantasmas 👻</option>
             <option value="pumpkin">Calabazas 🎃</option>
           </select>
+          <small id="rating-help" class="sr-only">Cambia el tipo de emoji usado para calificar las muertes</small>
         </div>
 
         <!-- Cantidad de emojis -->
         <div class="config-option">
-          <label>Cantidad de emojis</label>
+          <label for="emojiAcount">Cantidad de emojis</label>
           <input
             type="range"
             id="emojiAcount"
@@ -77,13 +80,53 @@
             max="100"
             value="50"
             onchange="updateEmojiAccount()"
+            aria-describedby="emoji-amount-help"
+            aria-valuemin="10"
+            aria-valuemax="100"
+            aria-valuenow="50"
           />
-          <span id="emojiAmountValue">50</span>
+          <span id="emojiAmountValue" aria-live="polite">50</span>
+          <small id="emoji-amount-help" class="sr-only">Controla cuántos emojis aparecen en las animaciones</small>
         </div>
 
-        <button class="reset-button" onclick="resetConfig()">
-          <i class="fas fa-undo"></i>
+        <button class="reset-button" onclick="resetConfig()" aria-label="Restaurar configuración predeterminada" title="Volver a los valores originales">
+          <i class="fas fa-undo" aria-hidden="true"></i>
           Restaurar valores predeterminados
+        </button>
+      </div>
+    </div>
+
+    <!-- Nueva sección de categorías -->
+    <div class="category-container">
+      <h4>Selecciona una categoría:</h4>
+      <div class="category-grid">
+        <button class="category-button" data-category="historicas">
+          <i class="fas fa-history"></i>
+          Muertes Históricas
+        </button>
+        <button class="category-button" data-category="accidentes">
+          <i class="fas fa-car-crash"></i>
+          Accidentes Absurdos
+        </button>
+        <button class="category-button" data-category="comida">
+          <i class="fas fa-utensils"></i>
+          Muertes por Comida
+        </button>
+        <button class="category-button" data-category="animales">
+          <i class="fas fa-paw"></i>
+          Relacionadas con Animales
+        </button>
+        <button class="category-button" data-category="deportes">
+          <i class="fas fa-futbol"></i>
+          Deportes Extremos
+        </button>
+        <button class="category-button" data-category="tecnologia">
+          <i class="fas fa-mobile-alt"></i>
+          Tecnología Fatal
+        </button>
+        <button class="category-button" data-category="todas" selected>
+          <i class="fas fa-random"></i>
+          Todas las Categorías
         </button>
       </div>
     </div>
@@ -249,5 +292,6 @@
     <script src="js/auth.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/categories.js"></script>
   </body>
 </html>

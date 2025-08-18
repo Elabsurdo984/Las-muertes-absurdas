@@ -1,3 +1,8 @@
+### 2.10.14
+- Categorias para las muertes
+- Mejora en el codigo
+- Arreglo de errores
+
 ### 2.6.12
 - Cambio en la estructura del codigo
 

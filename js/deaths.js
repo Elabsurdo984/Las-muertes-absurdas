@@ -5,7 +5,7 @@ const deaths = [
     'Envenenado por una bebida de tierra y lombrices.',
     'Atropellado por una montaña de almohadas.',
     'Chocado por una tormenta de peluches.',
-    'Aplastaado por una gigantesca torta de cumpleaños.',
+    'Aplastado por una gigantesca torta de cumpleaños.',
     'Tragado por un volcán de chocolate.',
     'Atascado en un charco de chicle.',
     'Desintegrado por un rayo de crema batida.',
@@ -31,7 +31,7 @@ const deaths = [
     'Encerrado en una burbuja de gelatina.',
     'Chocado por una tormenta de piñas.',
     'Atropellado por un carrito de palomitas de maíz.',
-    'Aplastaado por una montaña de peluches de peluche.',
+    'Aplastado por una montaña de peluches de peluche.',
     'Desintegrado por un rayo de azúcar glas.',
     'Envenenado por un batido de pescado.',
     'Ahogado en una piscina de queso fundido.',
@@ -51,7 +51,7 @@ const deaths = [
     'Golpeado por una lluvia de espárragos.',
     'Atropellado por una avalancha de bolas de helado.',
     'Chocado por una tormenta de tortas de cumpleaños.',
-    'Aplastaado por una marea de gomitas.',
+    'Aplastado por una marea de gomitas.',
     'Desintegrado por una lluvia de galletas de chocolate.',
     'Ahogado en una piscina de manteca de maní.',
     'Atropellado por una avalancha de galletas de la fortuna.',
@@ -63,7 +63,7 @@ const deaths = [
     'Ahogado en un lago de chocolate líquido.',
     'Chocado por una tormenta de pastelillos.',
     'Desintegrado por un rayo de jarabe de arce.',
-    'Aplastaado por una avalancha de paletas.',
+    'Aplastado por una avalancha de paletas.',
     'Envenenado por una bebida de salsa picante.',
     'Golpeado por una lluvia de orejas de conejo de peluche.',
     'Ahogado en una piscina de licor de cereza.',
@@ -81,7 +81,7 @@ const deaths = [
     'Aplastado por una avalancha de burritos.',
     'Chocado por una tormenta de malvaviscos.',
     'Desaparecido en una nube de azúcar impalpable.',
-    'Aplastaado por una pila de bolsas de patatas fritas.',
+    'Aplastado por una pila de bolsas de patatas fritas.',
     'Golpeado por una lluvia de crema de cacahuate.',
     'Atropellado por una máquina de chicles descontrolada.',
     'Ahogado en una piscina de batido de vainilla.',
@@ -91,7 +91,7 @@ const deaths = [
     'Aplastado por una marea de frutas confitadas.',
     'Desintegrado por un rayo de crema de queso.',
     'Ahogado en un lago de jarabe de arce.',
-    'Aplastaado por una avalancha de helado de fresa.',
+    'Aplastado por una avalancha de helado de fresa.',
     'Envenenado por una bebida de cebolla.',
     'Golpeado por una lluvia de popurrí.',
     'Atropellado por una avalancha de bagels.',
@@ -106,8 +106,14 @@ let currentDeath = '';
 function showRandomDeath() {
     const outputDiv = document.getElementById('output');
     const ratingContainer = document.getElementById('rating-container');
-    const randomIndex = Math.floor(Math.random() * deaths.length);
-    currentDeath = deaths[randomIndex];
+    
+    // Usar la función de categorías si está disponible, sino usar el método original
+    if (typeof getRandomDeathFromCategory === 'function') {
+        currentDeath = getRandomDeathFromCategory();
+    } else {
+        const randomIndex = Math.floor(Math.random() * deaths.length);
+        currentDeath = deaths[randomIndex];
+    }
 
     ratingContainer.classList.add('hidden');
     resetRating();
