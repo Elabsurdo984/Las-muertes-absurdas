@@ -1,3 +1,6 @@
+### 2.11.0
+- Mejora visual: las categorías ahora se muestran en un grid responsivo, facilitando la navegación.
+
 ### 2.10.14
 - Categorias para las muertes
 - Mejora en el codigo

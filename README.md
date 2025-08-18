@@ -1,5 +1,9 @@
 # Las Muertes Más Absurdas
 
+## Novedades
+
+- **Categorías en grid**: Ahora las categorías se muestran en una cuadrícula responsiva, facilitando la navegación y selección.
+
 ## Descripción
 
 "Las Muertes Más Absurdas" es un sitio web interactivo y humorístico que genera escenarios ficticios de muertes absurdas y cómicas. El sitio está diseñado con un toque de humor negro y no tiene la intención de ofender a nadie, sino simplemente proporcionar entretenimiento ligero. Los usuarios pueden generar escenarios aleatorios, calificarlos según cuán absurdos les parecen, y personalizar la experiencia del sitio.
@@ -15,6 +19,7 @@
   - Modificación de la velocidad de animaciones
   - Selección del estilo de calificación (calaveras, estrellas, fantasmas, calabazas)
   - Control sobre la cantidad de emojis que aparecen
+  - **Selección de categorías en grid responsivo** (¡nuevo!)
 
 ## Tecnologías utilizadas
 
