@@ -52,7 +52,9 @@
 ## Estructura de archivos
 
 ```
-├── Chan
+├── Changelog.md
+├── README.md
+├── LICENSE
 ├── index.html          # Estructura principal del sitio
 ├── style.css           # Estilos y animaciones
 ├── script.js           # Lógica de interacción y gestión de configuración
